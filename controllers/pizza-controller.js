@@ -5,6 +5,15 @@ const pizzaController = {
   //same as sequelize .findAll() but using Mongoose instead
   getAllPizza(req, res) {
     Pizza.find({})
+      //populate a field, passing in an object with the key path
+      .populate({
+        path: "comments",
+        //using the select option, this tells mongoose that we don't care about the __v field on comments either. the minus sign in front of the field indiecates that we dont want it to be returned.
+        select: "-__v",
+      })
+      .select("-__v")
+      //-1 set up the query so that the newset pizza returns first.  Sorts in DESC order by the _id value this gets the newset pizza because a timestamp value is hiden somewhere inside the mongoDB objectID
+      .sort({ _id: -1 })
       .then((dbPizzaData) => res.json(dbPizzaData))
       .catch((err) => {
         console.log(err);
@@ -16,6 +25,11 @@ const pizzaController = {
   //same as sequelize .findOne() but using Mongoose instead
   getPizzaById({ params }, res) {
     Pizza.findOne({ _id: params.id })
+      .populate({
+        path: "comments",
+        select: "-__v",
+      })
+      .select("-__v")
       .then((dbPizzaData) => {
         //If no pizza is found, send 404
         if (!dbPizzaData) {
