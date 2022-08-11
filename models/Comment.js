@@ -14,7 +14,7 @@ const ReplySchema = new Schema(
     replyBody: {
       type: String,
       required: true,
-      trime: true,
+      trim: true,
     },
     writtenBy: {
       type: String,
