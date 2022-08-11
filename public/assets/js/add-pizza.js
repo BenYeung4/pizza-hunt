@@ -64,6 +64,8 @@ const handlePizzaSubmit = (event) => {
     })
     .catch((err) => {
       console.log(err);
+      //this is used in public/assets/js/idb.js to save the record in case there is no internet connectino
+      saveRecord(formData);
     });
 };
 
