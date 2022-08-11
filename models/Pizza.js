@@ -9,9 +9,15 @@ const PizzaSchema = new Schema(
   {
     pizzaName: {
       type: String,
+      //required is a validator that requires data to be entered in that field
+      required: true,
+      //trim removes empty white space befor and after the input string, very useful with username and paassword data
+      trim: true,
     },
     createdBy: {
       type: String,
+      required: true,
+      trim: true,
     },
     createdAt: {
       type: Date,
@@ -23,6 +29,9 @@ const PizzaSchema = new Schema(
     },
     size: {
       type: String,
+      required: true,
+      //enum stands for enumerable, refers to a set of data that can be iterated over, this provide an array of options that this size field will accept.  If user enters a size that is not listed, the validation simply on't allow it
+      enum: ["Personal", "Small", "Medium", "Large", "Extra Large"],
       default: "Large",
     },
     //[] states the empty array as a data type, but can also specify by saying types: Array instead.

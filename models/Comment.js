@@ -13,9 +13,12 @@ const ReplySchema = new Schema(
     },
     replyBody: {
       type: String,
+      required: true,
+      trime: true,
     },
     writtenBy: {
       type: String,
+      required: true,
     },
     createdAt: {
       type: Date,
@@ -35,9 +38,15 @@ const CommentSchema = new Schema(
   {
     writtenBy: {
       type: String,
+      required: true,
+      //trim removes empty white space befor and after the input string, very useful with username and paassword data
+      trim: true,
     },
     commentBody: {
       type: String,
+      required: true,
+      //trim removes empty white space befor and after the input string, very useful with username and paassword data
+      trim: true,
     },
     createdAt: {
       type: Date,
