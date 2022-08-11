@@ -1,5 +1,6 @@
 const { Pizza } = require("../models");
 
+//this is the same as the app.get/app.post/app.delete/app.update the CRUD method
 const pizzaController = {
   //get all pizzas
   //same as sequelize .findAll() but using Mongoose instead
@@ -9,6 +10,7 @@ const pizzaController = {
       .populate({
         path: "comments",
         //using the select option, this tells mongoose that we don't care about the __v field on comments either. the minus sign in front of the field indiecates that we dont want it to be returned.
+        //__v is the document number, how many time it has been updated, it will increase
         select: "-__v",
       })
       .select("-__v")
