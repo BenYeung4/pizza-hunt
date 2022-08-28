@@ -3,7 +3,8 @@
 Link:
 https://radiant-wildwood-83459.herokuapp.com/
 
-[Pizza](https://user-images.githubusercontent.com/52897163/187097424-7de5cf37-12d4-4940-b13f-adb5b793359d.JPG)
+
+![Pizza](https://user-images.githubusercontent.com/52897163/187097463-8ac33c6d-5148-4544-9d7b-6494aef8eae9.JPG)
 
 ## Description
 
